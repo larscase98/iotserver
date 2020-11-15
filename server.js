@@ -9,18 +9,18 @@ const dev = process.env.NODE_ENV === "development";
 
 const port = 42069;
 
-// mongoose.connect(
-//   keys.mongoURI,
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//   },
-//   (err, db) => {
-//     if (err) throw err;`
-//     else console.log(`Connected to database.`);
-//   }
-// );
+mongoose.connect(
+  keys.mongoURI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  },
+  (err, db) => {
+    if (err) throw err;
+    else console.log(`Connected to database.`);
+  }
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
