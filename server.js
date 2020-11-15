@@ -5,11 +5,9 @@ const app = express();
 
 const keys = require("./config/keys");
 
-process.env.NODE_ENV = "development";
+const dev = process.env.NODE_ENV === "development";
 
-const { PORT, NODE_ENV } = process.env;
-const port = PORT || 4000;
-const dev = NODE_ENV === "development";
+const port = 42069;
 
 // mongoose.connect(
 //   keys.mongoURI,
@@ -31,5 +29,5 @@ app.listen(port, (err) => {
     return console.log("Error starting server:", res);
   }
 
-  console.log(`Listening on ${port}.`);
+  console.log(`Listening on ${port}`);
 });
