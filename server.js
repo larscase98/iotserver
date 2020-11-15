@@ -22,6 +22,9 @@ const port = 42069;
 //   }
 // );
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use("/api", require("./routes/api"));
 
 app.listen(port, (err) => {
