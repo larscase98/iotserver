@@ -5,4 +5,5 @@ const mongoDbName = "test";
 
 module.exports = {
   mongoURI: `mongodb+srv://${mongoCreds}@cluster0.r4diu.mongodb.net/${mongoDbName}?retryWrites=true&w=majority`,
+  apiToken: "superpurplesecretrabbit",
 };
