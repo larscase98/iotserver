@@ -1,16 +1,15 @@
 const router = require("express").Router();
 
 const keys = require("../../config/keys");
-const WeatherRecord = require("./../../models/WeatherRecord");
 
 router.use("/", (req, res, next) => {
-  console.log("API endpoint request received.");
-
   const token = req.get("X-Token");
 
   if (!token || token !== keys.apiToken) {
-    console.log("Bad token (X-Token header)");
+    console.log("/api (bad or no token)");
     return res.status(400).send("Bad token (X-Token header)");
+  } else {
+    console.log("/api (good token)");
   }
 
   next();
@@ -20,29 +19,13 @@ router.get("/", (req, res) => {
   res.send(new Date());
 });
 
-router.post("/sensordata", (req, res) => {
-  try {
-    const { temp, humidity } = req.body;
+router.use("/weather", require("./weather"));
 
-    if (!temp && !humidity)
-      return res
-        .status(400)
-        .send("No valid weather parameters found (temp, humidity...)");
+// doesn't work
+router.post("/vitals", (req, res) => {
+  const { voltage } = req.body;
 
-    new WeatherRecord({
-      temperature: temp,
-      humidity: humidity,
-    })
-      .save()
-      .then(() => {
-        return res.sendStatus(200);
-      })
-      .catch((err) => {
-        return res.status(500).send(err);
-      });
-  } catch (err) {
-    return res.status(400).send(err);
-  }
+  console.log(`${voltage} Vin`);
 });
 
 module.exports = router;

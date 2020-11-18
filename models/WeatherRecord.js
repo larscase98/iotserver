@@ -4,6 +4,7 @@ const schema = new mongoose.Schema(
   {
     temperature: Number, // Celcius
     humidity: Number, // % relative
+    nodeId: String, // the UUID of the chip sending the sensor readings
   },
   {
     timestamps: true,
