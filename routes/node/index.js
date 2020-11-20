@@ -19,4 +19,8 @@ router.use('/weather', require('./weather'));
 
 router.use('/vitals', require('./vitals'));
 
+router.get('/time', (req, res) => {
+  res.send(new Date());
+});
+
 module.exports = router;
