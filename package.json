@@ -17,5 +17,10 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "tabWidth": 2,
+    "singleQuote": true
   }
 }

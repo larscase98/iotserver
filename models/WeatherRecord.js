@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema(
   {
     temperature: Number, // Celcius
     humidity: Number, // % relative
-    nodeId: String, // the UUID of the chip sending the sensor readings
+    macAddress: String, // the MAC address of the chip sending the sensor readings
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("WeatherRecord", schema);
+module.exports = mongoose.model('WeatherRecord', schema);

@@ -15,8 +15,8 @@ router.use('/', (req, res, next) => {
   next();
 });
 
-router.get('/', (req, res) => {
-  res.send(new Date());
-});
+router.use('/weather', require('./weather'));
+
+router.use('/vitals', require('./vitals'));
 
 module.exports = router;
